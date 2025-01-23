@@ -1,3 +1,5 @@
+import turnosModel from '../models/turnosModel.js';
+
 
 class turnosController {
   constructor() {
@@ -6,7 +8,8 @@ class turnosController {
 
   async create(req, res) {
     try {
-      res.status(201).json({status: 'Create Ok'});
+      const data = turnosModel.create(req.body);
+      res.status(201).json(data);
     } catch (error) {
       res.status(500).send(error);
     }
