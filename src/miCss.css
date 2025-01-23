@@ -1,0 +1,34 @@
+.contenedor,
+.productos {
+    display: flex;
+    justify-content: center;
+}
+.imagenFondo{
+    width: 60%;
+}
+.miImagen{
+    border: 3px solid rgb(81, 189, 208);
+    width: 100%;
+}
+.nota{
+    margin-bottom: 5px;
+    
+}
+
+.productos{
+    margin-top: 50px;
+}
+.caja{
+    width: 30%;
+    background-color: aqua;
+    border-radius: 10px;
+    border: 1px solid white;
+    font-size: 2em;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    color: #333;
+}
+.zapas{
+    width: 100%;
+}
