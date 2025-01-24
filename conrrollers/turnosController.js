@@ -8,7 +8,7 @@ class turnosController {
 
   async create(req, res) {
     try {
-      const data = turnosModel.create(req.body);
+      const data = await turnosModel.create(req.body);
       res.status(201).json(data);
     } catch (error) {
       res.status(500).send(error);
@@ -17,15 +17,20 @@ class turnosController {
 
   async update(req, res) {
     try {
-      res.status(201).json({status: 'Update Ok'});
+      const {id} = req.params;
+      const data = await turnosModel.update(id, req.body);
+      res.status(200).json(data);
     } catch (error) {
+      console.log(error);
       res.status(500).send(error);
     }
   }
 
   async delete(req, res) {
     try {
-      res.status(201).json({status: 'Delete Ok'});
+      const {id} = req.params;
+      const data = await turnosModel.delete(id);
+      res.status(206).json(data);
     } catch (error) {
       res.status(500).send(error);
     }
@@ -33,7 +38,8 @@ class turnosController {
 
   async getAll(req, res) {
     try {
-      res.status(201).json({status: 'Get All Ok'});
+      const data = await turnosModel.getAll();
+      res.status(201).json(data);
     } catch (error) {
       res.status(500).send(error);
     }
@@ -41,7 +47,9 @@ class turnosController {
 
   async getOne(req, res) {
     try {
-      res.status(201).json({status: 'GetOne Ok'});
+      const {id} = req.params;
+      const data = await turnosModel.getOne(id);
+      res.status(201).json(data);
     } catch (error) {
       res.status(500).send(error);
     }
