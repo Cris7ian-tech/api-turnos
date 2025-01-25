@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from 'express';
 import turnosRoute from './routes/turnosRoute.js';
 import bodyParser from "body-parser";
+import dbClient from './config/dbClient.js';
 
 const app = express();
 
@@ -16,4 +17,10 @@ try {
 } catch (error) {
   console.log("error al intentar conectar con el servidor")
 }
+
+process.on('SIGINT', async () => {
+  dbClient.cerrarConexion();
+  console.log('Conexion cerrada');
+  process.exit(0);
+});
 
